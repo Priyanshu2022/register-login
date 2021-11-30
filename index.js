@@ -8,9 +8,12 @@ const authRoute=require('./routes/auth')
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true },()=>{
-    console.log('connected to mongodb')
-});
+mongoose 
+ .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true
+          })   
+ .then(() => console.log("Database connected!"))
+ .catch(err => console.log(err));
 
 // converts post requests into json
 app.use(express.json());

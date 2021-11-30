@@ -11,6 +11,7 @@ console.log('hdihfid')
             email:req.body.email,
             password:hashedPassword
         })
+        console.log(newUser)
         const user=await newUser.save();
         res.status(200).json(user);
     }
